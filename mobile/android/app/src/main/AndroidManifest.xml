@@ -1,0 +1,82 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Section 6: Required Android Permissions & Manifest Declarations -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission" />
+
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme"
+      android:usesCleartextTraffic="${usesCleartextTraffic}"
+      android:supportsRtl="true">
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+
+      <!-- Section 4.2: NotificationListenerService capture pipeline -->
+      <service
+          android:name=".notification.RecDelNotificationListenerService"
+          android:label="@string/app_name"
+          android:exported="true"
+          android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+          <intent-filter>
+              <action android:name="android.service.notification.NotificationListenerService" />
+          </intent-filter>
+      </service>
+
+      <!-- Section 3.13: persistent "Status Saver / Watching for new Statuses" foreground service -->
+      <service
+          android:name=".foreground.StatusSaverForegroundService"
+          android:exported="false"
+          android:foregroundServiceType="dataSync" />
+
+      <!-- Restart monitoring after device reboot (Section 6) -->
+      <receiver
+          android:name=".boot.BootCompletedReceiver"
+          android:exported="true">
+          <intent-filter>
+              <action android:name="android.intent.action.BOOT_COMPLETED" />
+          </intent-filter>
+      </receiver>
+
+      <!-- WorkManager/AlarmManager periodic status re-check (Section 3.4, 4.1) -->
+      <receiver
+          android:name=".foreground.StatusPollAlarmReceiver"
+          android:exported="false" />
+
+      <!-- Exposes cached notification thumbnails (Section 4.2) to RN's Image component via content:// -->
+      <provider
+          android:name="androidx.core.content.FileProvider"
+          android:authorities="${applicationId}.fileprovider"
+          android:exported="false"
+          android:grantUriPermissions="true">
+          <meta-data
+              android:name="android.support.FILE_PROVIDER_PATHS"
+              android:resource="@xml/file_paths" />
+      </provider>
+    </application>
+</manifest>

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: recdel-backend
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.14.0
+      - key: CORS_ORIGIN
+        value: "*"

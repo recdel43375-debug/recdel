@@ -1,0 +1,74 @@
+{
+  "disclaimer": {
+    "title": "RecDel",
+    "body1": "RecDel works independently of WhatsApp. All data is stored locally on your device — nothing is collected or shared.",
+    "body2": "\"Deleted Message Recovery\" only works via the Notification Access permission, and only for messages received after that permission is enabled. Deletions that happened before install are not recoverable.",
+    "body3": "Only messages and media the other person sent can ever be recovered. RecDel cannot capture or reconstruct your own sent messages, since Android never generates a notification for your own outgoing messages.",
+    "body4": "You are solely responsible for legal use of this app. It is intended for personal use only; misuse may be subject to legal action.",
+    "accept": "Accept"
+  },
+  "onboarding": {
+    "skip": "Skip",
+    "previous": "Previous",
+    "next": "Next",
+    "finish": "Finish",
+    "slide1Title": "Recover Deleted Messages",
+    "slide1Subtitle": "Accidentally deleted? Get your messages back in seconds!",
+    "slide2Title": "Restore Deleted Images",
+    "slide2Subtitle": "Restore every memory, every moment, every photo.",
+    "slide3Title": "Restore Deleted Videos",
+    "slide3Subtitle": "Get your important videos back — fast and easy."
+  },
+  "home": {
+    "addApp": "Add App",
+    "noChatFound": "No Chat Found!",
+    "permissionRequiredTitle": "Permission Required",
+    "permissionRequiredBody": "Please allow the following permissions to get selected apps notifications and whatsapp statuses.",
+    "folderAccess": "Folder access Android 11",
+    "notificationAccess": "Notification Access",
+    "skipForNow": "Skip for now"
+  },
+  "tabs": {
+    "notification": "Notification",
+    "trashFiles": "Trash Files",
+    "status": "Status",
+    "settings": "Settings"
+  },
+  "chooseApp": {
+    "title": "Choose App",
+    "done": "Done"
+  },
+  "statusViewer": {
+    "photos": "Photos",
+    "videos": "Videos",
+    "savedStatus": "Saved Status",
+    "fileSaved": "File saved in gallery"
+  },
+  "settings": {
+    "title": "Settings",
+    "downloadLocation": "Download Location",
+    "advanceSettings": "Advance Settings",
+    "notification": "Notification",
+    "autoSave": "Auto Save",
+    "restartServices": "Restart Services",
+    "permissions": "Permissions",
+    "permissionsDescription": "We use permissions only to recover statuses and keep notifications working. You can allow them anytime.",
+    "chooseLanguage": "Choose Language",
+    "generalSettings": "General Settings",
+    "rememberLimitations": "Remember & Limitations",
+    "shareApp": "Share App",
+    "rateUs": "Rate Us",
+    "privacyPolicy": "Privacy Policy",
+    "termsAndConditions": "Terms and Conditions"
+  },
+  "exactAlarm": {
+    "title": "Allow Exact Alarm",
+    "body": "This keeps auto-save and status monitoring stable, even when the app isn't open.",
+    "notNow": "Not now",
+    "openSettings": "Open Settings"
+  },
+  "premium": {
+    "title": "Premium",
+    "comingSoon": "Premium features are coming soon."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "autoSaveDefaultEnabled": false,
+  "notificationDefaultEnabled": true,
+  "premium": {
+    "enabled": false,
+    "priceUsd": 4.99,
+    "trialDays": 0
+  },
+  "notificationEventTypesEnabled": {
+    "plainText": true,
+    "emojiOrSticker": true,
+    "reaction": true,
+    "mediaAttached": true,
+    "voiceNoteMetadataOnly": true
+  },
+  "statusPollIntervalMinutes": 15,
+  "maxMonitoredApps": 5,
+  "adsEnabled": false
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "packageName": "com.whatsapp",
+    "displayName": "WhatsApp",
+    "iconRef": "whatsapp",
+    "capabilities": ["statusFolder", "notificationCapture"],
+    "statusFolderPaths": [
+      "Android/media/com.whatsapp/WhatsApp/Media/.Statuses"
+    ]
+  },
+  {
+    "packageName": "com.whatsapp.w4b",
+    "displayName": "WhatsApp Business",
+    "iconRef": "whatsapp_business",
+    "capabilities": ["statusFolder", "notificationCapture"],
+    "statusFolderPaths": [
+      "Android/media/com.whatsapp.w4b/WhatsApp Business/Media/.Statuses"
+    ]
+  },
+  {
+    "packageName": "com.google.android.apps.messaging",
+    "displayName": "Messages",
+    "iconRef": "messages",
+    "capabilities": ["notificationCapture"],
+    "statusFolderPaths": []
+  },
+  {
+    "packageName": "com.instagram.android",
+    "displayName": "Instagram",
+    "iconRef": "instagram",
+    "capabilities": ["notificationCapture"],
+    "statusFolderPaths": []
+  },
+  {
+    "packageName": "com.google.android.gm",
+    "displayName": "Gmail",
+    "iconRef": "gmail",
+    "capabilities": ["notificationCapture"],
+    "statusFolderPaths": []
+  }
+]

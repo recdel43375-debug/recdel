@@ -1,0 +1,9 @@
+{
+  "platform": "android",
+  "latestVersion": "1.0.0",
+  "latestVersionCode": 1,
+  "minSupportedVersionCode": 1,
+  "forceUpdate": false,
+  "updateUrl": "https://play.google.com/store/apps/details?id=com.recdel.app",
+  "releaseNotes": "Initial release."
+}

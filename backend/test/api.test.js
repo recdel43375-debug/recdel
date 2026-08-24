@@ -21,7 +21,14 @@ function request(server, method, path, body) {
         let chunks = '';
         res.on('data', (c) => (chunks += c));
         res.on('end', () => {
-          resolve({ status: res.statusCode, body: chunks ? JSON.parse(chunks) : null });
+          const contentType = res.headers['content-type'] || '';
+          const isJson = contentType.includes('application/json');
+          resolve({
+            status: res.statusCode,
+            contentType,
+            text: chunks,
+            body: isJson && chunks ? JSON.parse(chunks) : null,
+          });
         });
       }
     );
@@ -53,13 +60,26 @@ test('config and legal endpoints respond', async (t) => {
   assert.ok(Array.isArray(apps.body.apps));
   assert.ok(apps.body.apps.some((a) => a.packageName === 'com.whatsapp'));
 
-  const privacy = await request(server, 'GET', '/legal/privacy-policy');
-  assert.strictEqual(privacy.status, 200);
-  assert.ok(privacy.body.content.includes('Privacy Policy'));
+  // Human-readable HTML pages (Play Store listing URL, browser visitors)
+  const privacyPage = await request(server, 'GET', '/legal/privacy-policy');
+  assert.strictEqual(privacyPage.status, 200);
+  assert.ok(privacyPage.contentType.includes('text/html'));
+  assert.ok(privacyPage.text.includes('Privacy Policy'));
+  assert.ok(privacyPage.text.includes('<!DOCTYPE html>'));
 
-  const terms = await request(server, 'GET', '/legal/terms');
-  assert.strictEqual(terms.status, 200);
-  assert.ok(terms.body.content.includes('Terms'));
+  const termsPage = await request(server, 'GET', '/legal/terms');
+  assert.strictEqual(termsPage.status, 200);
+  assert.ok(termsPage.contentType.includes('text/html'));
+  assert.ok(termsPage.text.includes('Terms'));
+
+  // Raw markdown JSON, consumed by the mobile app's in-app legal screens
+  const privacyJson = await request(server, 'GET', '/legal/privacy-policy.json');
+  assert.strictEqual(privacyJson.status, 200);
+  assert.ok(privacyJson.body.content.includes('Privacy Policy'));
+
+  const termsJson = await request(server, 'GET', '/legal/terms.json');
+  assert.strictEqual(termsJson.status, 200);
+  assert.ok(termsJson.body.content.includes('Terms'));
 });
 
 test('telemetry rejects unknown events and accepts allowed ones', async (t) => {

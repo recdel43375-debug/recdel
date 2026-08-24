@@ -1,11 +1,11 @@
 # Privacy Policy
 
-_Last updated: 2026-07-24_
+_Last updated: 2026-08-24_
 
-RecDel ("the App") is a local-only Android utility. This policy explains what
+Reshow ("the App") is a local-only Android utility. This policy explains what
 the App does and does not do with your data.
 
-## What RecDel does
+## What Reshow does
 
 - Reads WhatsApp's public Status media cache folder (while a status is still
   live) so you can preview and save it to your own device gallery.
@@ -13,18 +13,18 @@ the App does and does not do with your data.
   to keep a local copy of notification content (text/media previews) so it
   remains viewable if the sender later deletes the original message.
 
-## What RecDel does not do
+## What Reshow does not do
 
-- RecDel does **not** upload, transmit, or store any message content, media,
+- Reshow does **not** upload, transmit, or store any message content, media,
   contact names, or notification data on any server. Everything stays on
   your device, in the App's local storage.
-- RecDel does **not** read WhatsApp's (or any app's) encrypted database. It
+- Reshow does **not** read WhatsApp's (or any app's) encrypted database. It
   only ever replays notification content that has already been delivered to
   your device by the operating system.
-- RecDel cannot and does not capture messages **you** send — Android does
+- Reshow cannot and does not capture messages **you** send — Android does
   not generate a notification for the device owner's own outgoing messages,
   so only the other party's messages/reactions can ever be recovered.
-- RecDel does not recover messages deleted **before** you granted
+- Reshow does not recover messages deleted **before** you granted
   Notification Access, and does not recover status posts that expired or
   were deleted before the App had a chance to read them while live.
 
@@ -32,11 +32,11 @@ the App does and does not do with your data.
 
 The only network calls the App makes are to a stateless configuration API
 that returns non-personal data: current app version (for update prompts),
-feature flags, the list of apps RecDel has special integrations for, and
-this legal text. If anonymous usage telemetry is enabled in Settings, only
-non-identifying event counters (e.g. "app_opened") are sent — never message
-content, filenames, or contact identifiers — and it can be disabled at any
-time.
+feature flags, the list of apps Reshow has special integrations for, and
+this legal text. The App also sends anonymous, non-identifying event
+counters (e.g. "app_opened") so we can see aggregate usage patterns —
+never message content, filenames, or contact identifiers, and never
+anything that identifies you individually.
 
 ## Permissions
 
@@ -48,9 +48,8 @@ time.
 
 ## Your control
 
-You may revoke any permission, delete captured data (by clearing app
-storage or uninstalling), and disable anonymous telemetry at any time from
-the Settings screen.
+You may revoke any permission, and delete captured data at any time, by
+clearing app storage or uninstalling the App.
 
 ## Contact
 
